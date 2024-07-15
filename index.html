@@ -59,7 +59,7 @@
       background: black;
       border-radius: 50%;
     }
-    #circle3 {
+    .circle3 {
       position: absolute;
       align-items: center;
       top: 50%;
@@ -69,13 +69,15 @@
       border-radius: 50%;
       width: 10px; 
       height: 10px; 
-      animation: boom-animation 3s ease-out infinite;
-      z-index:1;
+      animation: pulseAnimate 4s ease-out infinite;
+      animation-delay: calc(1s * var(--i));
+      z-index: 1;
     }
-    @keyframes boom-animation {
-      0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-      50% { transform: translate(-50%, -50%) scale(33); opacity: 0.1; }
-      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    @keyframes pulseAnimate {
+      100% {
+        opacity: 0;
+        transform: scale(40);
+      }
     }
   </style>
 </head>
@@ -85,7 +87,10 @@
     <span></span>
     <span></span>
     <span></span>
-    <div id="circle3"></div>
+    <div class="circle3" style="--i:0;"></div>
+    <div class="circle3" style="--i:1;"></div>
+    <div class="circle3" style="--i:2;"></div>
+    <div class="circle3" style="--i:3;"></div>
   </div>
 </body>
 </html>
